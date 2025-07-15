@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git 'https://github.com/yourusername/devops-job-tracker.git'
+        git 'https://github.com/Vinayak-99010/devops-job-tracker.git'
       }
     }
     stage('Build') {
