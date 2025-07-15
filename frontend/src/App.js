@@ -38,12 +38,17 @@ function App() {
       <input placeholder="Notes" value={form.notes} onChange={e => setForm({ ...form, notes: e.target.value })} />
       <button onClick={addJob}>Add Job</button>
       <ul>
-        {jobs.map(job => (
-          <li key={job._id}>
-            <strong>{job.company}</strong> – {job.role} – {job.status}
-          </li>
-        ))}
-      </ul>
+  {jobs.length === 0 && <p>No jobs yet.</p>}
+  {jobs.map(job => (
+    <li key={job._id} style={{ marginBottom: '1rem' }}>
+      <strong>{job.company}</strong> — {job.role} — {job.status}  
+      <div>📅 Applied On: <em>{job.date_applied || 'N/A'}</em></div>
+      <div><i>📝 {job.notes}</i></div>
+      <hr />
+    </li>
+  ))}
+</ul>
+
     </div>
   );
 }
